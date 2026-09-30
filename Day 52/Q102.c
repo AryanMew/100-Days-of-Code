@@ -1,4 +1,4 @@
-// Q102: Write a Program to take a sorted array arr[] and an integer x as input, find the index of the smallest element in arr[] that is greater than or equal to x and print it.
+// Q102 Write a Program to take a sorted array arr[] and an integer x as input, find the index of the smallest element in arr[] that is greater than or equal to x and print it.
 
 #include <stdio.h>
 
