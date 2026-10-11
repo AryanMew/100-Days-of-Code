@@ -1,40 +1,39 @@
-// Q105: Write a program to take an integer array nums of size n, and print the majority element.
-// The majority element is the element that appears strictly more than n/2 times.
-// Print -1 if no such element exists.
+// Q109: Find the maximum sum of all subarrays of size k.
 
 #include <stdio.h>
 
-int main(void)
-{
-    int n, i, j, count, majority = -1;
+int main() {
+    int n, k, arr[100], sum = 0, maxSum;
 
-    printf("Enter size of array: ");
+    printf("Enter array size: ");
     scanf("%d", &n);
 
-    int nums[n];
+    if (n < 1 || n > 100)
+        return 0;
 
-    printf("Enter elements: ");
-    for (i = 0; i < n; i++)
-        scanf("%d", &nums[i]);
+    printf("Enter array elements: ");
+    for (int i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
 
-    for (i = 0; i < n; i++)
-    {
-        count = 0;
+    printf("Enter k: ");
+    scanf("%d", &k);
 
-        for (j = 0; j < n; j++)
-        {
-            if (nums[i] == nums[j])
-                count++;
-        }
+    if (k < 1 || k > n)
+        return 0;
 
-        if (count > n / 2)
-        {
-            majority = nums[i];
-            break;
-        }
+    for (int i = 0; i < k; i++)
+        sum += arr[i];
+
+    maxSum = sum;
+
+    for (int i = k; i < n; i++) {
+        sum += arr[i] - arr[i - k];
+
+        if (sum > maxSum)
+            maxSum = sum;
     }
 
-    printf("%d", majority);
+    printf("%d", maxSum);
 
     return 0;
 }
